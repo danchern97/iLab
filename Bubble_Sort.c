@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 int* BubbleSort(int* a, int n);
-time_t time(time_t *tp);
 
 int main() {
     int i, j, n;
