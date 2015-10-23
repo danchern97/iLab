@@ -18,9 +18,17 @@ int main(){
         len++;
     }
     char** ar = (char**) malloc(sizeof(char*)*(len+1));
+    if(ar == NULL){
+        perror("No memory");
+        return 0;
+    }
     rewind(in_file);
     while(fgets(buff, LEN, in_file) != NULL){
         ar[i] = (char*) malloc((strlen(buff)+1)*sizeof(char));
+        if(ar[i] == NULL){
+            perror("No memory");
+            return 0;
+        }
         strcpy(ar[i], buff);
         i++;
     }
