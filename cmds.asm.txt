@@ -1,0 +1,5 @@
+Push ax 5
+Push ax 2.5
+Div ax ax
+Push ax 1.75
+Sub ax ax

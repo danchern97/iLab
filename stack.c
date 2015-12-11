@@ -1,5 +1,11 @@
+Stack create(){
+    Stack s;
+    s.root = NULL;
+    return s;
+}
+
 int push(Stack* s, double x) {
-    assert(x);
+    //assert(x);
     Node* t  = (Node*)calloc(1, sizeof(Node));
     t->data = x;
     if(isEmpty(s)) {
@@ -12,14 +18,11 @@ int push(Stack* s, double x) {
 }
 
 int isEmpty(Stack* s) {
-    if(s->root == NULL) {
-        return 1;
-    } else {
-        return 0;
-    }
+    return (s->root == NULL);
 }
 
 double pop(Stack* s) {
+    printf("pop\n");
     assert(!isEmpty(s));
     double rt = s->root->data;
     s->root = s->root->next;
@@ -33,9 +36,19 @@ void dump(Stack* s) {
     } else {
         Node *t = s->root;
         while(t != NULL) {
-            printf("%.2f",  t->data);
+            printf("%.2f ",  t->data);
             t = t->next;
         }
     }
 }
 
+void del(Stack* s){
+    Node* pointer = s->root;
+    Node* pointer_next;
+    while(pointer_next != NULL){
+        pointer_next = pointer->next;
+        free(&(pointer->data));
+        free(&(pointer->next));
+        pointer = pointer_next;
+    }
+}

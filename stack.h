@@ -14,6 +14,8 @@ struct Stack {
 
 typedef struct Stack Stack;
 
+Stack create();
+void del(Stack* s);
 int push(Stack* s, double x);
 double pop(Stack* s);
 int isEmpty(Stack* s);
