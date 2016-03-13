@@ -1,22 +1,29 @@
-#include <stdio.h>
-#include <assert.h>
+typedef int stack_type;
 
-struct Node {
-    double data;
-    struct Node *next;
+class CStack {
+private:
+
+    int size_d;
+    int pointer;
+    stack_type* date_d;
+
+    void isfull();
+
+    int isempty();
+
+    void resize_d();
+
+public:
+
+    CStack();
+
+    CStack(int x);
+
+    ~CStack();
+
+    void push(stack_type t);
+
+    stack_type pop();
+
+    void dump();
 };
-
-typedef struct Node Node;
-
-struct Stack {
-    Node *root;
-};
-
-typedef struct Stack Stack;
-
-Stack create();
-void del(Stack* s);
-int push(Stack* s, double x);
-double pop(Stack* s);
-int isEmpty(Stack* s);
-void dump(Stack* s);
